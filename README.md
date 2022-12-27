@@ -1,4 +1,4 @@
-# eduapp
+# Edu App
 
 A new Flutter project.
 
