@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import './screens/signup.dart';
 import './screens/signin.dart';
+import './screens/intro.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,7 +87,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const SignUp(),
+      routes: {
+        '/signin': (context) => const SignIn(),
+        '/signup': (context) => const SignUp(),
+      },
+      home: const Intro(),
     );
   }
 }

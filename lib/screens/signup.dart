@@ -213,6 +213,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 onPressed: () {
                   //signup screen
+                  Navigator.pushNamed(context, '/signin');
                 },
               )
             ],

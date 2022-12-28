@@ -177,6 +177,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   onPressed: () {
                     //signup screen
+                    Navigator.pushNamed(context, '/signup');
                   },
                 )
               ],
