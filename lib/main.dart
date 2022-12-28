@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import './screens/signin.dart';
 import './screens/signup.dart';
-import './screens/grade_selection.dart';
+import './screens/intro.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,7 +90,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const GradeSelection(),
+      routes: {
+        '/signin': (context) => const SignIn(),
+        '/signup': (context) => const SignUp(),
+      },
+      home: const Intro(),
     );
   }
 }

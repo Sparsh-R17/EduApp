@@ -17,8 +17,9 @@ class _SignUpState extends State<SignUp> {
     final pageWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
-          child: ListView(
+          child: Column(
         children: [
           Container(
             // alignment: Alignment.center,
@@ -34,6 +35,7 @@ class _SignUpState extends State<SignUp> {
           ),
           Container(
             // alignment: Alignment.center,
+            alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(
               bottom: pageHeight * 0.01,
               left: pageWidth * 0.085,
@@ -68,7 +70,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           Container(
-            // alignment: Alignment.center,
+            alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(
               top: pageHeight * 0.024,
               bottom: pageHeight * 0.01,
@@ -104,7 +106,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           Container(
-            // alignment: Alignment.center,
+            alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(
               top: pageHeight * 0.024,
               bottom: pageHeight * 0.01,
@@ -127,7 +129,8 @@ class _SignUpState extends State<SignUp> {
                     _imgVisible = !_imgVisible;
                   });
                 },
-                onEditingComplete: () { //! Testing Visibility
+                onSubmitted: (value) {
+                  //! Testing Visibility
                   setState(() {
                     _imgVisible = !_imgVisible;
                   });
@@ -166,6 +169,7 @@ class _SignUpState extends State<SignUp> {
                 pageWidth * 0.172, pageHeight * 0.03),
             child: SizedBox(
               height: pageHeight * 0.074,
+              width: pageWidth * 0.6472,
               child: ElevatedButton(
                 onPressed: () {
                   // print(nameController.text);
@@ -209,6 +213,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 onPressed: () {
                   //signup screen
+                  Navigator.pushNamed(context, '/signin');
                 },
               )
             ],
