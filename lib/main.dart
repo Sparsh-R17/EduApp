@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import './screens/signup.dart';
-import './screens/signin.dart';
+import './screens/grade_selection.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        primaryColor: const Color(0xff5667FD),
         canvasColor: Colors.black,
         textTheme: const TextTheme(
           displayLarge: TextStyle(
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
           displaySmall: TextStyle(
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w500,
-            color: Colors.white,
+            color: Color(0xff364356),
             fontSize: 16.27,
           ),
           labelMedium: TextStyle(
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: const ElevatedButtonThemeData(
           style: ButtonStyle(
+            splashFactory: NoSplash.splashFactory,
             backgroundColor: MaterialStatePropertyAll(
               Color(0xff5667FD),
             ),
@@ -80,13 +82,14 @@ class MyApp extends StatelessWidget {
         ),
         textButtonTheme: const TextButtonThemeData(
           style: ButtonStyle(
+            splashFactory: NoSplash.splashFactory,
             foregroundColor: MaterialStatePropertyAll(
               Color(0xff5667FD),
             ),
           ),
         ),
       ),
-      home: const SignUp(),
+      home: const GradeSelection(),
     );
   }
 }
