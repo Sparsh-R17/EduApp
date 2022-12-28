@@ -1,7 +1,10 @@
+import 'package:eduapp/screens/grade_selection.dart';
+import 'package:eduapp/screens/signin.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
+  static const routeName = '/sign-up';
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -130,7 +133,6 @@ class _SignUpState extends State<SignUp> {
                   });
                 },
                 onSubmitted: (value) {
-                  //! Testing Visibility
                   setState(() {
                     _imgVisible = !_imgVisible;
                   });
@@ -172,13 +174,14 @@ class _SignUpState extends State<SignUp> {
               width: pageWidth * 0.6472,
               child: ElevatedButton(
                 onPressed: () {
-                  // print(nameController.text);
-                  // print(passwordController.text);
+                  Navigator.of(context)
+                      .pushReplacementNamed(GradeSelection.routeName);
                 },
                 style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                )),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
                 child: const Text(
                   'Sign up',
                   style: TextStyle(
@@ -213,7 +216,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 onPressed: () {
                   //signup screen
-                  Navigator.pushNamed(context, '/signin');
+                  Navigator.pushReplacementNamed(context, SignIn.routeName);
                 },
               )
             ],

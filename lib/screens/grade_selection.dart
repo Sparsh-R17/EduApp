@@ -4,6 +4,7 @@ import '../widgets/grade_list.dart';
 
 class GradeSelection extends StatefulWidget {
   const GradeSelection({super.key});
+  static const routeName = '/grade-selection';
 
   @override
   State<GradeSelection> createState() => _GradeSelectionState();

@@ -1,3 +1,4 @@
+import 'package:eduapp/screens/grade_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -91,8 +92,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/signin': (context) => const SignIn(),
-        '/signup': (context) => const SignUp(),
+        SignIn.routeName: (context) => const SignIn(),
+        SignUp.routeName: (context) => const SignUp(),
+        GradeSelection.routeName: (context) => const GradeSelection(),
       },
       home: const Intro(),
     );

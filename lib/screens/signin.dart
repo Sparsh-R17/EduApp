@@ -1,7 +1,9 @@
+import 'package:eduapp/screens/signup.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
+  static const routeName = '/sign-in';
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -177,7 +179,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   onPressed: () {
                     //signup screen
-                    Navigator.pushNamed(context, '/signup');
+                    Navigator.pushReplacementNamed(context, SignUp.routeName);
                   },
                 )
               ],

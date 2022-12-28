@@ -1,3 +1,5 @@
+import 'package:eduapp/screens/signin.dart';
+import 'package:eduapp/screens/signup.dart';
 import 'package:flutter/material.dart';
 
 class Intro extends StatelessWidget {
@@ -54,8 +56,7 @@ class Intro extends StatelessWidget {
               width: pageWidth * 1.15,
               child: ElevatedButton(
                 onPressed: () {
-                  // print("Sign in pressed");
-                  Navigator.pushNamed(context, '/signin');
+                  Navigator.of(context).pushReplacementNamed(SignIn.routeName);
                 },
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -82,8 +83,7 @@ class Intro extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              // print("Sign Up pressed");
-              Navigator.pushNamed(context, '/signup');
+              Navigator.of(context).pushReplacementNamed(SignUp.routeName);
             },
           )
         ],
