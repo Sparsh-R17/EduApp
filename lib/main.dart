@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import './screens/signup.dart';
+import './screens/signin.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
@@ -51,6 +54,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w300,
             color: Color(0xff364356),
+            fontSize: 14,
           ),
           titleLarge: TextStyle(
             fontFamily: 'Poppins',
@@ -82,50 +86,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const TrialPage(),
-    );
-  }
-}
-
-class TrialPage extends StatelessWidget {
-  const TrialPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            ElevatedButton(
-              child: const Text('Hello'),
-              onPressed: () {},
-            ),
-            TextButton(
-              child: const Text('Hello'),
-              onPressed: () {},
-            ),
-            Container(
-              color: Colors.white,
-              height: 200,
-              width: double.infinity,
-              child: Text(
-                'Good Morning',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              height: 200,
-              width: double.infinity,
-              child: Text(
-                'Good Morning',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
-            Image.asset('assets/Images/sign_in.png'),
-          ],
-        ),
-      ),
+      home: const SignUp(),
     );
   }
 }
