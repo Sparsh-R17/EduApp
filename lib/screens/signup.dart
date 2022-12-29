@@ -174,8 +174,7 @@ class _SignUpState extends State<SignUp> {
               width: pageWidth * 0.6472,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed(GradeSelection.routeName);
+                  Navigator.of(context).pushReplacementNamed(SignUp.routeName);
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

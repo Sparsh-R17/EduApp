@@ -1,51 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'explore_screen.dart';
-import '/screens/state_selection.dart';
-import '/widgets/grade_list.dart';
+import '/widgets/state_list.dart';
 
-class GradeSelection extends StatefulWidget {
-  const GradeSelection({super.key});
-  static const routeName = '/grade-selection';
-
-  @override
-  State<GradeSelection> createState() => _GradeSelectionState();
-}
-
-class _GradeSelectionState extends State<GradeSelection> {
-  int clickDetect = -1;
+class StateSelection extends StatelessWidget {
+  const StateSelection({super.key});
+  static const routeName = '/state-selection';
 
   @override
   Widget build(BuildContext context) {
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
-
-    final List<String> gradeNumber = [
-      '1 -5',
-      '6 - 9',
-      '10 - 11',
-      '12 - 13',
-    ];
-
-    final List<Map<String, String>> subjectName = [
-      {
-        'icon': 'assets/Images/arts.png',
-        'name': 'Arts',
-      },
-      {
-        'icon': 'assets/Images/commerce.png',
-        'name': 'Commerce',
-      },
-      {
-        'icon': 'assets/Images/maths.png',
-        'name': 'Maths',
-      },
-      {
-        'icon': 'assets/Images/science.png',
-        'name': 'Science',
-      },
-    ];
-
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -59,19 +24,16 @@ class _GradeSelectionState extends State<GradeSelection> {
                 10,
               ),
               child: Text(
-                'What\'s your grade ? ',
+                'What\'s your State ? ',
                 style: Theme.of(context).textTheme.displayLarge,
               ),
             ),
-            GradeList(
-              gradeNumber: gradeNumber,
-              subjectName: subjectName,
-            ),
+            const StateList(),
             Center(
               child: Container(
                 margin: EdgeInsets.fromLTRB(
                   0,
-                  pageHeight * 0.03,
+                  pageHeight * 0.05,
                   0,
                   0,
                 ),
@@ -84,7 +46,8 @@ class _GradeSelectionState extends State<GradeSelection> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed(StateSelection.routeName);
+                    Navigator.of(context)
+                        .pushReplacementNamed(ExploreScreen.routeName);
                   },
                   child: const Text(
                     'Next',

@@ -1,5 +1,7 @@
-import 'package:eduapp/screens/signup.dart';
 import 'package:flutter/material.dart';
+
+import '/screens/explore_Screen.dart';
+import '/screens/signup.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -138,6 +140,8 @@ class _SignInState extends State<SignIn> {
                 width: pageWidth * 0.6472,
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, ExploreScreen.routeName);
                     // print(nameController.text);
                     // print(passwordController.text);
                   },

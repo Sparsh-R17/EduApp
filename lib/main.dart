@@ -1,10 +1,12 @@
-import 'package:eduapp/screens/grade_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import './screens/signin.dart';
-import './screens/signup.dart';
-import './screens/intro.dart';
+import 'screens/explore_screen.dart';
+import '/screens/grade_selection.dart';
+import '/screens/state_selection.dart';
+import '/screens/signin.dart';
+import '/screens/signup.dart';
+import '/screens/intro.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -92,11 +94,14 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
+        '/': (context) => const Intro(),
         SignIn.routeName: (context) => const SignIn(),
         SignUp.routeName: (context) => const SignUp(),
         GradeSelection.routeName: (context) => const GradeSelection(),
+        StateSelection.routeName: (context) => const StateSelection(),
+        ExploreScreen.routeName: (context) => const ExploreScreen(),
       },
-      home: const Intro(),
+      // home: const Intro(),
     );
   }
 }
