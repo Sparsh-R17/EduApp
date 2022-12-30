@@ -1,4 +1,3 @@
-
 import 'package:eduapp/screens/grade_selection.dart';
 import 'package:eduapp/screens/signup.dart';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
@@ -61,7 +60,19 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: DoubleBackToCloseApp(
-          snackBar: const SnackBar(content: Text("Press back again to exit!")),
+          snackBar: const SnackBar(
+            content: Text(
+              textAlign: TextAlign.center,
+              "Press back again to exit!",
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold,
+                color: Color(0xff364356),
+                fontSize: 16,
+              ),
+            ),
+            backgroundColor: Colors.white,
+          ),
           child: SafeArea(
               child: Column(
             children: [
@@ -161,7 +172,9 @@ class _SignInState extends State<SignIn> {
                       hintStyle: Theme.of(context).textTheme.labelSmall,
                       suffixIcon: IconButton(
                         icon: Icon(
-                          _passVisible ? Icons.visibility : Icons.visibility_off,
+                          _passVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                           color: Theme.of(context).primaryColorDark,
                         ),
                         onPressed: () {
