@@ -58,11 +58,11 @@ class _SignInState extends State<SignIn> {
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
 
-    return DoubleBackToCloseApp(
-      snackBar: const SnackBar(content: Text("Press back again to exit!!")),
-      child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: SafeArea(
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: DoubleBackToCloseApp(
+          snackBar: const SnackBar(content: Text("Press back again to exit!")),
+          child: SafeArea(
               child: Column(
             children: [
               Padding(
@@ -277,7 +277,7 @@ class _SignInState extends State<SignIn> {
                 ],
               ),
             ],
-          ))),
-    );
+          )),
+        ));
   }
 }
