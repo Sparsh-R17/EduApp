@@ -2,6 +2,9 @@ import 'package:eduapp/screens/grade_selection.dart';
 import 'package:eduapp/screens/signin.dart';
 import 'package:flutter/material.dart';
 
+import '../dummy_data.dart';
+import '../models/user.dart';
+
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
   static const routeName = '/sign-up';
@@ -13,6 +16,51 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool _passVisible = false;
   bool _imgVisible = true;
+
+  String info = "";
+
+  TextEditingController inpEmailController = TextEditingController();
+  TextEditingController inpNameController = TextEditingController();
+  TextEditingController inpPassController = TextEditingController();
+
+  void newUserCreate(String newEmail, String newName, String newPass) {
+    bool exist = false;
+
+    if (newEmail.isEmpty || newName.isEmpty || newPass.isEmpty) {
+      info = "Fill all the details, Idiot!";
+    } else {
+      for (var i = 0; i < userData.length; i++) {
+        if (userData[i].email == newEmail) {
+          exist = true;
+        } else {
+          exist = false;
+        }
+      }
+      if (exist) {
+        info = "User he gadhe! Jake Login kar!";
+      } else {
+        final newUser = User(
+          email: newEmail,
+          name: newName,
+          pass: newPass,
+        );
+        // final newUser2 = [newEmail, newName, newPass];
+        // print(newUser2);
+        setState(() {
+          userData.add(newUser);
+        });
+      }
+    }
+
+    // final newUser = User(
+    //   email: newEmail,
+    //   name: newName,
+    //   pass: newPass,
+    // );
+    // setState(() {
+    //   userData.add(newUser);
+    // });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +102,7 @@ class _SignUpState extends State<SignUp> {
             child: SizedBox(
               height: pageHeight * 0.064,
               child: TextField(
-                // controller: nameController,
+                controller: inpNameController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -90,7 +138,7 @@ class _SignUpState extends State<SignUp> {
             child: SizedBox(
               height: pageHeight * 0.064,
               child: TextField(
-                // controller: nameController,
+                controller: inpEmailController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -137,7 +185,7 @@ class _SignUpState extends State<SignUp> {
                     _imgVisible = !_imgVisible;
                   });
                 },
-                // controller: passwordController,
+                controller: inpPassController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -174,7 +222,62 @@ class _SignUpState extends State<SignUp> {
               width: pageWidth * 0.6472,
               child: ElevatedButton(
                 onPressed: () {
+<<<<<<< Updated upstream
                   Navigator.of(context).pushReplacementNamed(SignUp.routeName);
+=======
+                  newUserCreate(
+                    inpEmailController.text,
+                    inpNameController.text,
+                    inpPassController.text,
+                  );
+                  if (info.isNotEmpty) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text(
+                          "Login Notice!",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 230, 20, 72),
+                            // color: Colors.red,
+                          ),
+                        ),
+                        content: Text(
+                          info.toString(),
+                          style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            color: Color(0xff364356),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(9),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              if (info == "User he gadhe! Jake Login kar!") {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  SignIn.routeName,
+                                );
+                              } else {
+                                Navigator.of(context).pop;
+                              }
+                            },
+                            child: const Text("Continue"),
+                          )
+                        ],
+                      ),
+                    );
+                  } else {
+                    Navigator.of(context)
+                        .pushReplacementNamed(GradeSelection.routeName);
+                  }
+>>>>>>> Stashed changes
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

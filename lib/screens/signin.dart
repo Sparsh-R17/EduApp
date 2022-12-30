@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
+=======
+import 'package:eduapp/screens/grade_selection.dart';
+import 'package:eduapp/screens/signup.dart';
+>>>>>>> Stashed changes
 import 'package:flutter/material.dart';
+import '../dummy_data.dart';
 
 import '/screens/explore_screen.dart';
 import '/screens/signup.dart';
@@ -14,6 +20,39 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool _passVisible = false;
   bool _imgVisible = true;
+
+  late String a;
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+
+  void enterValue() {
+    final submittedName = nameController.text;
+    final submittedPass = passController.text;
+
+    int x = -1;
+
+    if (submittedName.isEmpty || submittedPass.isEmpty) {
+      return;
+    }
+    for (var i = 0; i < userData.length; i++) {
+      if (userData[i].email == submittedName) {
+        x = i;
+      }
+    }
+    if (x != -1) {
+      if (userData[x].pass == submittedPass) {
+        // print("You have logged in successfully");
+        Navigator.pushReplacementNamed(context, GradeSelection.routeName);
+      } else {
+        // print("Wrong password! Try Again!");
+        a = "Wrong password! Try Again!";
+      }
+    } else {
+      // print("User doesn't exist");
+      a = "User doesn't exist";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +87,7 @@ class _SignInState extends State<SignIn> {
                 left: pageWidth * 0.085,
               ),
               child: Text(
-                'Name',
+                'Email address',
                 style: Theme.of(context).textTheme.labelMedium,
               ),
             ),
@@ -58,7 +97,8 @@ class _SignInState extends State<SignIn> {
               child: SizedBox(
                 height: pageHeight * 0.064,
                 child: TextField(
-                  // controller: nameController,
+                  controller: nameController,
+                  onSubmitted: (_) => enterValue(),
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -70,7 +110,7 @@ class _SignInState extends State<SignIn> {
                       vertical: pageHeight * 0.064 * 0.5,
                       horizontal: pageWidth * 0.0389,
                     ),
-                    hintText: 'Your Name',
+                    hintText: 'name@example.com',
                     hintStyle: Theme.of(context).textTheme.labelSmall,
                   ),
                 ),
@@ -101,9 +141,10 @@ class _SignInState extends State<SignIn> {
                     });
                   },
                   onSubmitted: (value) {
+                    enterValue();
                     _imgVisible = !_imgVisible;
                   },
-                  // controller: passwordController,
+                  controller: passController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -140,10 +181,59 @@ class _SignInState extends State<SignIn> {
                 width: pageWidth * 0.6472,
                 child: ElevatedButton(
                   onPressed: () {
+<<<<<<< Updated upstream
                     Navigator.pushReplacementNamed(
                         context, ExploreScreen.routeName);
                     // print(nameController.text);
                     // print(passwordController.text);
+=======
+                    if (nameController.text.isNotEmpty &&
+                        passController.text.isNotEmpty) {
+                      enterValue();
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text(
+                            "Login Notice!",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 230, 20, 72),
+                              // color: Colors.red,
+                            ),
+                          ),
+                          content: Text(
+                            a.toString(),
+                            style: const TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Color(0xff364356),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(9),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                if (a == "User doesn't exist") {
+                                  Navigator.pushReplacementNamed(
+                                    context,
+                                    SignUp.routeName,
+                                  );
+                                } else {
+                                  Navigator.of(context).pop;
+                                }
+                              },
+                              child: const Text("Continue"),
+                            )
+                          ],
+                        ),
+                      );
+                    }
+>>>>>>> Stashed changes
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
