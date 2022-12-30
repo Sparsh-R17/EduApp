@@ -1,8 +1,7 @@
-<<<<<<< Updated upstream
-=======
+
 import 'package:eduapp/screens/grade_selection.dart';
 import 'package:eduapp/screens/signup.dart';
->>>>>>> Stashed changes
+
 import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 
@@ -181,12 +180,10 @@ class _SignInState extends State<SignIn> {
                 width: pageWidth * 0.6472,
                 child: ElevatedButton(
                   onPressed: () {
-<<<<<<< Updated upstream
                     Navigator.pushReplacementNamed(
                         context, ExploreScreen.routeName);
                     // print(nameController.text);
                     // print(passwordController.text);
-=======
                     if (nameController.text.isNotEmpty &&
                         passController.text.isNotEmpty) {
                       enterValue();
@@ -233,7 +230,6 @@ class _SignInState extends State<SignIn> {
                         ),
                       );
                     }
->>>>>>> Stashed changes
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

@@ -222,9 +222,7 @@ class _SignUpState extends State<SignUp> {
               width: pageWidth * 0.6472,
               child: ElevatedButton(
                 onPressed: () {
-<<<<<<< Updated upstream
                   Navigator.of(context).pushReplacementNamed(SignUp.routeName);
-=======
                   newUserCreate(
                     inpEmailController.text,
                     inpNameController.text,
@@ -277,7 +275,6 @@ class _SignUpState extends State<SignUp> {
                     Navigator.of(context)
                         .pushReplacementNamed(GradeSelection.routeName);
                   }
->>>>>>> Stashed changes
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
