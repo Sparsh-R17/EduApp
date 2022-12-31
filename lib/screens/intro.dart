@@ -1,7 +1,7 @@
-import 'package:eduapp/screens/signin.dart';
-import 'package:eduapp/screens/signup.dart';
 import 'package:flutter/material.dart';
 
+import '/screens/signin.dart';
+import '/screens/signup.dart';
 class Intro extends StatelessWidget {
   const Intro({super.key});
 

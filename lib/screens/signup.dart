@@ -1,12 +1,12 @@
-import 'package:eduapp/screens/grade_selection.dart';
-import 'package:eduapp/screens/signin.dart';
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
+
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-import '../dummy_data.dart';
 import '../models/user.dart';
+import '../dummy_data.dart';
+import '/screens/grade_selection.dart';
+import '/screens/signin.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});

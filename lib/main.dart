@@ -94,7 +94,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => const Intro(),
+        '/': (context) => const ExploreScreen(),
         SignIn.routeName: (context) => const SignIn(),
         SignUp.routeName: (context) => const SignUp(),
         GradeSelection.routeName: (context) => const GradeSelection(),

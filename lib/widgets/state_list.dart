@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../dummy_data.dart';
 
-class StateList extends StatelessWidget {
+class StateList extends StatefulWidget {
   const StateList({super.key});
 
+  @override
+  State<StateList> createState() => _StateListState();
+}
+
+class _StateListState extends State<StateList> {
+  int _clickCounter = -1;
   @override
   Widget build(BuildContext context) {
     final pageHeight = MediaQuery.of(context).size.height;
@@ -39,16 +45,35 @@ class StateList extends StatelessWidget {
               mainAxisSpacing: 15,
             ),
             itemBuilder: (context, index) {
-              return Card(
-                color: const Color(0xffe6e6e6),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.48),
-                ),
-                elevation: 0,
-                child: Center(
-                  child: Text(
-                    stateName[index],
-                    style: Theme.of(context).textTheme.displaySmall,
+              return GestureDetector(
+                onTap: () {
+                  setState(
+                    () {
+                      if (_clickCounter == index) {
+                        _clickCounter = -1;
+                      } else {
+                        _clickCounter = index;
+                      }
+                    },
+                  );
+                },
+                child: Card(
+                  color: _clickCounter == index
+                      ? Theme.of(context).primaryColor
+                      : const Color(0xffe6e6e6),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.48),
+                  ),
+                  elevation: 0,
+                  child: Center(
+                    child: Text(
+                      stateName[index],
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            color: _clickCounter == index
+                                ? Colors.white
+                                : const Color(0xff364356),
+                          ),
+                    ),
                   ),
                 ),
               );

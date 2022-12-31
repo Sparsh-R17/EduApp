@@ -1,10 +1,9 @@
-import 'package:eduapp/screens/grade_selection.dart';
-import 'package:eduapp/screens/signup.dart';
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import '../dummy_data.dart';
 
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+
+import '../dummy_data.dart';
 import '/screens/explore_screen.dart';
 import '/screens/signup.dart';
 
@@ -18,7 +17,6 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   bool _passVisible = false;
-  bool _imgVisible = true;
 
   String a = "";
 
