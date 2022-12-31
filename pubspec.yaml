@@ -33,6 +33,7 @@ dependencies:
   double_back_to_close_app: ^2.0.1
   flutter:
     sdk: flutter
+  flutter_keyboard_visibility: ^5.4.0
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:

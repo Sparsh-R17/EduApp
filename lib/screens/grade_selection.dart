@@ -47,6 +47,7 @@ class _GradeSelectionState extends State<GradeSelection> {
     ];
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
