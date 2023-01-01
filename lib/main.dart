@@ -65,7 +65,8 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
             fontSize: 32,
-            color: Color.fromRGBO(38, 50, 56, 1),
+            // color: Color.fromRGBO(38, 50, 56, 1),
+            color: Color(0xff364356),
             // color: Colors.red,
           ),
           titleMedium: TextStyle(

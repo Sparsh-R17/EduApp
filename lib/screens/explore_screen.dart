@@ -27,9 +27,6 @@ class ExploreScreen extends StatelessWidget {
             ),
             //TODO - Make the ListView.builder() here only and then pass the data to the Container (scroll direction horizontal)
             const TeacherCard(),
-            SizedBox(
-              height: pageHeight * 0.035,
-            ),
             const InstituteFilter(),
             SizedBox(
               height: pageHeight * 0.035,
