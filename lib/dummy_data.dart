@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'models/user.dart';
 import 'models/teacher.dart';
+import 'models/institute.dart';
 
 List<User> userData = [
   User(
@@ -87,4 +88,34 @@ final List<String> stateName = [
   'Tripura',
   'Uttar Pradesh',
   'Uttarakhand',
+];
+
+List<Institute> instituteData = [
+  Institute(
+    name: "Victory College",
+    star: [4.5, 413],
+    field: "Bio Science",
+    desc:
+        "Studying how CBD awareness and availability as it related to pain management alternatives",
+    pic: "assets/Images/institute_1_DDE1FF.png",
+    color: const Color(0xffdde1ff),
+  ),
+  Institute(
+    name: "New Montana",
+    star: [4.1, 354],
+    field: "Bio Science",
+    desc:
+        "Montant Higher Educational Institute. Gampaha montana.gampaha@gmail.com",
+    pic: "assets/Images/institute_2_FF9F92.png",
+    color: const Color(0xffff9f92),
+  ),
+  Institute(
+    name: "Susipwan Institute",
+    star: [3.0, 745],
+    field: "Bio Science",
+    desc:
+        "This is a private higher education center which conducting classes for GCE AL Students.",
+    pic: "assets/Images/institute_3_BFDDEC.png",
+    color: const Color(0xffbfddec),
+  ),
 ];
