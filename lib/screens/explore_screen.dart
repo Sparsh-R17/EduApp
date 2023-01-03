@@ -15,6 +15,7 @@ class ExploreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageHeight = MediaQuery.of(context).size.height;
+    final pageWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -26,13 +27,28 @@ class ExploreScreen extends StatelessWidget {
               SizedBox(
                 height: pageHeight * 0.035,
               ),
-              //TODO - Make the ListView.builder() here only and then pass the data to the Container (scroll direction horizontal)
-              const TeacherCard(),
+              Container(
+                height: pageHeight * 0.25,
+                width: double.infinity,
+                margin: EdgeInsets.only(left: pageWidth * 0.06),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemBuilder: ((context, index) {
+                    return TeacherCard(
+                      name: teacherData[index].name,
+                      subject: teacherData[index].subject,
+                      color: teacherData[index].color,
+                      pic: teacherData[index].pic,
+                    );
+                  }),
+                  itemCount: teacherData.length,
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
               const InstituteFilter(),
               SizedBox(
                 height: pageHeight * 0.035,
               ),
-              //TODO - Make the ListView.builder() here only and then pass the data to the Container
               ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
