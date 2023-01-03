@@ -7,6 +7,7 @@ import '../widgets/teacher_filter.dart';
 import '../widgets/teacher_card.dart';
 import '../widgets/institute_filter.dart';
 import '../widgets/institute_card.dart';
+import '../widgets/bottom_nav.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({super.key});
@@ -56,6 +57,7 @@ class ExploreScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InstituteCard(
                       name: instituteData[index].name,
+                      star: instituteData[index].star,
                       field: instituteData[index].field,
                       desc: instituteData[index].desc,
                       pic: instituteData[index].pic,
@@ -66,7 +68,7 @@ class ExploreScreen extends StatelessWidget {
           ),
         ),
       ),
-      //TODO - Bottom Navigation Bar
+      bottomNavigationBar: const BottomNav(),
     );
   }
 }

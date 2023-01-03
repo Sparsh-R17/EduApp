@@ -7,6 +7,7 @@ import '/screens/state_selection.dart';
 import '/screens/signin.dart';
 import '/screens/signup.dart';
 import '/screens/intro.dart';
+import 'widgets/star_rating.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

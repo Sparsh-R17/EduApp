@@ -102,7 +102,7 @@ List<Institute> instituteData = [
   ),
   Institute(
     name: "New Montana",
-    star: [4.1, 354],
+    star: [4.0, 354],
     field: "Bio Science",
     desc:
         "Montant Higher Educational Institute. Gampaha montana.gampaha@gmail.com",
@@ -111,7 +111,7 @@ List<Institute> instituteData = [
   ),
   Institute(
     name: "Susipwan Institute",
-    star: [3.0, 745],
+    star: [3.5, 745],
     field: "Bio Science",
     desc:
         "This is a private higher education center which conducting classes for GCE AL Students.",

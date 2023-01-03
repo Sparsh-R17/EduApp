@@ -54,14 +54,10 @@ class _SignInState extends State<SignIn> {
     }
     if (x != -1) {
       if (userData[x].pass == submittedPass) {
-        // print("You have logged in successfully");
-        // Navigator.pushReplacementNamed(context, GradeSelection.routeName);
       } else {
-        // print("Wrong password! Try Again!");
         a = "Wrong password! Try Again!";
       }
     } else {
-      // print("User doesn't exist");
       a = "User doesn't exist";
     }
   }
@@ -91,26 +87,24 @@ class _SignInState extends State<SignIn> {
             child: SafeArea(
                 child: Column(
               children: [
-                KeyboardVisibilityBuilder(
-                  builder: (p0, isKeyboardVisible) {
-                    return Padding(
-                      padding: !isKeyboardVisible
-                          ? const EdgeInsets.all(0)
-                          : EdgeInsets.fromLTRB(0, 0, 0, pageHeight * 0.1),
-                      child: SizedBox(
-                        child: Visibility(
-                          visible: !isKeyboardVisible,
-                          child: Image.asset(
-                            'assets/Images/sign_in.png',
-                            width: pageWidth * 0.6472 * 1.4, // 0.577
-                            height: pageHeight * 0.3232 * 1.4, // 0.18
-                            // height: ,
-                          ),
+                KeyboardVisibilityBuilder(builder: (p0, isKeyboardVisible) {
+                  return Padding(
+                    padding: !isKeyboardVisible
+                        ? const EdgeInsets.all(0)
+                        : EdgeInsets.fromLTRB(0, 0, 0, pageHeight * 0.1),
+                    child: SizedBox(
+                      child: Visibility(
+                        visible: !isKeyboardVisible,
+                        child: Image.asset(
+                          'assets/Images/sign_in.png',
+                          width: pageWidth * 0.6472 * 1.4, // 0.577
+                          height: pageHeight * 0.3232 * 1.4, // 0.18
+                          // height: ,
                         ),
                       ),
-                    );
-                  }
-                ),
+                    ),
+                  );
+                }),
                 Container(
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.only(
@@ -200,8 +194,11 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(pageWidth * 0.172,
-                      pageHeight * 0.0607, pageWidth * 0.172, pageHeight * 0.03),
+                  padding: EdgeInsets.fromLTRB(
+                      pageWidth * 0.172,
+                      pageHeight * 0.0607,
+                      pageWidth * 0.172,
+                      pageHeight * 0.03),
                   child: SizedBox(
                     height: pageHeight * 0.074,
                     width: pageWidth * 0.6472,
@@ -299,7 +296,8 @@ class _SignInState extends State<SignIn> {
                       ),
                       onPressed: () {
                         //signup screen
-                        Navigator.pushReplacementNamed(context, SignUp.routeName);
+                        Navigator.pushReplacementNamed(
+                            context, SignUp.routeName);
                       },
                     )
                   ],
