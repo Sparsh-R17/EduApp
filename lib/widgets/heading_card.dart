@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '/dummy_data.dart';
+
 class HeadingCard extends StatelessWidget {
-  const HeadingCard({super.key});
+  final int? indexUser;
+  const HeadingCard({super.key, required this.indexUser});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class HeadingCard extends StatelessWidget {
       width: double.infinity,
       height: pageHeight * 0.26,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 244, 245, 249),
+        color: const Color.fromARGB(255, 244, 245, 249),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Column(
@@ -46,7 +49,10 @@ class HeadingCard extends StatelessWidget {
                     child: FittedBox(
                       fit: BoxFit.contain,
                       child: Text(
-                        "Hardline Scott",
+                        //Condition added to avoid null value
+                        indexUser == null
+                            ? 'Hardline Scott'
+                            : userData[indexUser!].name,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ),
@@ -75,8 +81,8 @@ class HeadingCard extends StatelessWidget {
                 width: pageWidth * 0.7,
                 height: pageHeight * 0.085,
                 padding: EdgeInsets.only(
-                left: pageWidth * 0.03,
-                top: pageHeight * 0.02,
+                  left: pageWidth * 0.03,
+                  top: pageHeight * 0.02,
                 ),
                 child: TextField(
                   controller: searchController,
@@ -101,8 +107,10 @@ class HeadingCard extends StatelessWidget {
                       ),
                       suffixIcon: Container(
                         width: pageWidth * 0.145,
-                        margin: EdgeInsets.fromLTRB(0, pageWidth * 0.015, 0, pageWidth * 0.015),
-                        padding: EdgeInsets.symmetric(horizontal: pageWidth * 0.02),
+                        margin: EdgeInsets.fromLTRB(
+                            0, pageWidth * 0.015, 0, pageWidth * 0.015),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: pageWidth * 0.02),
                         child: ElevatedButton(
                           style: ButtonStyle(
                             elevation: const MaterialStatePropertyAll(3.0),
@@ -126,7 +134,8 @@ class HeadingCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(right: pageWidth * 0.06,top: pageHeight * 0.02),
+                padding: EdgeInsets.only(
+                    right: pageWidth * 0.06, top: pageHeight * 0.02),
                 child: IconButton(
                   onPressed: () {
                     print("Pressed");

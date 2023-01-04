@@ -17,6 +17,8 @@ class _GradeSelectionState extends State<GradeSelection> {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs = ModalRoute.of(context)?.settings.arguments as int;
+    
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
 
@@ -85,7 +87,9 @@ class _GradeSelectionState extends State<GradeSelection> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed(StateSelection.routeName);
+                    Navigator.of(context).pushNamed(StateSelection.routeName,
+                      arguments: routeArgs,
+                    );
                   },
                   child: const Text(
                     'Next',
@@ -115,8 +119,10 @@ class _GradeSelectionState extends State<GradeSelection> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(ExploreScreen.routeName);
+                    Navigator.of(context).pushReplacementNamed(
+                      ExploreScreen.routeName,
+                      arguments: routeArgs,
+                    );
                   },
                 ),
               ),

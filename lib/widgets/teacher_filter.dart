@@ -24,18 +24,6 @@ class _TeacherFilterState extends State<TeacherFilter> {
   final List<int> _rememberChoiceOfSubject = [];
   bool _showChips = false;
 
-  Color fillColor(int colorCase, String filter) {
-    if (colorCase == 0) {
-      return Theme.of(context).primaryColor;
-    } else {
-      if (_rememberChoiceOfArea.contains(_teacherFilterTypes.indexOf(filter))) {
-        return Theme.of(context).primaryColor;
-      } else {
-        return Colors.white;
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final pageHeight = MediaQuery.of(context).size.height;

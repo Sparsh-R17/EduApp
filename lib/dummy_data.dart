@@ -7,29 +7,21 @@ import 'models/institute.dart';
 List<User> userData = [
   User(
     email: 'ap@gmail.com',
-    name: 'AP',
+    name: 'Akash P',
     pass: 'pass',
   ),
-  User(
-    email: 'saa@gmail.com',
-    name: 'SAA',
-    pass: 'pass',
-  ),
+ 
   User(
     email: 'csv@gmail.com',
-    name: 'CSV',
+    name: 'Sai Venkatesh',
     pass: 'pass',
   ),
   User(
     email: 'sp@gmail.com',
-    name: 'SP',
+    name: 'Sparsh Rajput',
     pass: 'pass',
   ),
-  User(
-    email: 'spa@gmail.com',
-    name: 'SPA',
-    pass: 'pass',
-  ),
+  
 ];
 
 List<Teacher> teacherData = [

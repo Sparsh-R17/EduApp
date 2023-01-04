@@ -41,6 +41,8 @@ class _SignUpState extends State<SignUp> {
         : null;
   }
 
+  final indexUser = userData.length;
+
   void newUserCreate(String newEmail, String newName, String newPass) {
     bool exist = false;
 
@@ -296,8 +298,10 @@ class _SignUpState extends State<SignUp> {
                           ),
                         );
                       } else {
-                        Navigator.of(context)
-                            .pushReplacementNamed(GradeSelection.routeName);
+                        Navigator.of(context).pushReplacementNamed(
+                          GradeSelection.routeName,
+                          arguments: indexUser,
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -339,7 +343,10 @@ class _SignUpState extends State<SignUp> {
                     ),
                     onPressed: () {
                       //signup screen
-                      Navigator.pushReplacementNamed(context, SignIn.routeName);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        SignIn.routeName,
+                      );
                     },
                   )
                 ],

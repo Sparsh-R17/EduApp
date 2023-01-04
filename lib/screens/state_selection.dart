@@ -9,6 +9,8 @@ class StateSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs = ModalRoute.of(context)?.settings.arguments as int;
+    
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -46,8 +48,10 @@ class StateSelection extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(ExploreScreen.routeName);
+                    Navigator.of(context).pushReplacementNamed(
+                      ExploreScreen.routeName,
+                      arguments: routeArgs,
+                    );
                   },
                   child: const Text(
                     'Next',
@@ -77,8 +81,9 @@ class StateSelection extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(ExploreScreen.routeName);
+                    Navigator.of(context).pushReplacementNamed(
+                        ExploreScreen.routeName,
+                        arguments: routeArgs);
                   },
                 ),
               ),

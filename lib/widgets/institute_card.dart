@@ -1,5 +1,6 @@
-import 'package:eduapp/widgets/star_rating.dart';
 import 'package:flutter/material.dart';
+
+import '/widgets/star_rating.dart';
 
 class InstituteCard extends StatelessWidget {
   final String name;

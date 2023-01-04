@@ -7,7 +7,6 @@ import '/screens/state_selection.dart';
 import '/screens/signin.dart';
 import '/screens/signup.dart';
 import '/screens/intro.dart';
-import 'widgets/star_rating.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -96,7 +95,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => const ExploreScreen(),
+        '/': (context) => const Intro(),
         SignIn.routeName: (context) => const SignIn(),
         SignUp.routeName: (context) => const SignUp(),
         GradeSelection.routeName: (context) => const GradeSelection(),

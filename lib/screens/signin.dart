@@ -38,22 +38,22 @@ class _SignInState extends State<SignIn> {
         : null;
   }
 
+  int indexUser = -1;
+
   void enterValue() {
     final submittedName = nameController.text;
     final submittedPass = passController.text;
-
-    int x = -1;
 
     if (submittedName.isEmpty || submittedPass.isEmpty) {
       return;
     }
     for (var i = 0; i < userData.length; i++) {
       if (userData[i].email == submittedName) {
-        x = i;
+        indexUser = i;
       }
     }
-    if (x != -1) {
-      if (userData[x].pass == submittedPass) {
+    if (indexUser != -1) {
+      if (userData[indexUser].pass == submittedPass) {
       } else {
         a = "Wrong password! Try Again!";
       }
@@ -254,6 +254,7 @@ class _SignInState extends State<SignIn> {
                             Navigator.pushReplacementNamed(
                               context,
                               ExploreScreen.routeName,
+                              arguments: indexUser
                             );
                           }
                         }
