@@ -87,50 +87,51 @@ class HeadingCard extends StatelessWidget {
                 child: TextField(
                   controller: searchController,
                   decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 0, style: BorderStyle.none),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: pageHeight * 0.07 * 0.2,
-                        horizontal: pageWidth * 0.03,
-                      ),
-                      hintText: 'Search your teacher',
-                      hintStyle: const TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff364356),
-                        fontSize: 14,
-                      ),
-                      suffixIcon: Container(
-                        width: pageWidth * 0.145,
-                        margin: EdgeInsets.fromLTRB(
-                            0, pageWidth * 0.015, 0, pageWidth * 0.015),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: pageWidth * 0.02),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: const MaterialStatePropertyAll(3.0),
-                            // fixedSize: MaterialStatePropertyAll(Size(65,65)),
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color.fromARGB(255, 86, 103, 253)),
-                            shape:
-                                MaterialStatePropertyAll(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            )),
-                          ),
-                          onPressed: () {
-                            print("Search pressed");
-                          },
-                          child: const Icon(
-                            Icons.search,
-                            color: Colors.white,
-                          ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 0, style: BorderStyle.none),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: pageHeight * 0.07 * 0.2,
+                      horizontal: pageWidth * 0.03,
+                    ),
+                    hintText: 'Search your teacher',
+                    hintStyle: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff364356),
+                      fontSize: 14,
+                    ),
+                    suffixIcon: Container(
+                      width: pageWidth * 0.145,
+                      margin: EdgeInsets.fromLTRB(
+                          0, pageWidth * 0.015, 0, pageWidth * 0.015),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: pageWidth * 0.02),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: const MaterialStatePropertyAll(3.0),
+                          // fixedSize: MaterialStatePropertyAll(Size(65,65)),
+                          backgroundColor: MaterialStateProperty.all(
+                              const Color.fromARGB(255, 86, 103, 253)),
+                          shape:
+                              MaterialStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
                         ),
-                      )),
+                        onPressed: () {
+                          print("Search pressed");
+                        },
+                        child: const Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               Container(

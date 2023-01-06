@@ -10,6 +10,7 @@ class Intro extends StatelessWidget {
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Column(
         children: [

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 import '../models/user.dart';
@@ -81,279 +80,264 @@ class _SignUpState extends State<SignUp> {
     return KeyboardDismissOnTap(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: DoubleBackToCloseApp(
-          snackBar: const SnackBar(
-            content: Text(
-              textAlign: TextAlign.center,
-              "Press back again to exit!",
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.bold,
-                color: Color(0xff364356),
-                fontSize: 16,
+        body: SafeArea(
+            child: Column(
+          children: [
+            KeyboardVisibilityBuilder(
+              builder: (p0, isKeyboardVisible) {
+                return Container(
+                  // alignment: Alignment.center,
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, pageHeight * 0.031),
+                  child: Visibility(
+                    visible: !isKeyboardVisible,
+                    child: Image.asset(
+                      'assets/Images/sign_up.png',
+                      width: pageWidth * 0.577 * 1.4, // 0.577
+                      height: pageHeight * 0.18 * 1.4, // 0.18
+                    ),
+                  ),
+                );
+              },
+            ),
+            Container(
+              // alignment: Alignment.center,
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(
+                bottom: pageHeight * 0.01,
+                left: pageWidth * 0.085,
+              ),
+              child: Text(
+                'Name',
+                style: Theme.of(context).textTheme.labelMedium,
               ),
             ),
-            backgroundColor: Colors.white,
-          ),
-          child: SafeArea(
-              child: Column(
-            children: [
-              KeyboardVisibilityBuilder(
-                builder: (p0, isKeyboardVisible) {
-                  return Container(
-                    // alignment: Alignment.center,
-                    padding: EdgeInsets.fromLTRB(0, 20, 0, pageHeight * 0.031),
-                    child: Visibility(
-                      visible: !isKeyboardVisible,
-                      child: Image.asset(
-                        'assets/Images/sign_up.png',
-                        width: pageWidth * 0.577 * 1.4, // 0.577
-                        height: pageHeight * 0.18 * 1.4, // 0.18
-                      ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  pageWidth * 0.085, 0, pageWidth * 0.085, 0),
+              child: SizedBox(
+                child: TextFormField(
+                  textInputAction: TextInputAction.next,
+                  controller: inpNameController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 0),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
-                  );
-                },
-              ),
-              Container(
-                // alignment: Alignment.center,
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(
-                  bottom: pageHeight * 0.01,
-                  left: pageWidth * 0.085,
-                ),
-                child: Text(
-                  'Name',
-                  style: Theme.of(context).textTheme.labelMedium,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: pageHeight * 0.064 * 0.265,
+                      horizontal: pageWidth * 0.0389,
+                    ),
+                    hintText: 'Your Name',
+                    hintStyle: Theme.of(context).textTheme.labelSmall,
+                  ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                    pageWidth * 0.085, 0, pageWidth * 0.085, 0),
-                child: SizedBox(
-                  child: TextFormField(
-                    textInputAction: TextInputAction.next,
-                    controller: inpNameController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 0),
-                        borderRadius: BorderRadius.circular(8.0),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(
+                top: pageHeight * 0.024,
+                bottom: pageHeight * 0.01,
+                left: pageWidth * 0.085,
+              ),
+              child: Text(
+                'Email address',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  pageWidth * 0.085, 0, pageWidth * 0.085, 0),
+              child: SizedBox(
+                child: TextFormField(
+                  textInputAction: TextInputAction.next,
+                  autovalidateMode: AutovalidateMode.always,
+                  validator: validateEmail,
+                  controller: inpEmailController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 0),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: pageHeight * 0.064 * 0.265,
+                      horizontal: pageWidth * 0.0389,
+                    ),
+                    hintText: 'name@example.com',
+                    hintStyle: Theme.of(context).textTheme.labelSmall,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(
+                top: pageHeight * 0.024,
+                bottom: pageHeight * 0.01,
+                left: pageWidth * 0.085,
+              ),
+              child: Text(
+                'Password',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  pageWidth * 0.085, 0, pageWidth * 0.085, 0),
+              child: SizedBox(
+                child: TextFormField(
+                  textInputAction: TextInputAction.done,
+                  obscureText: !_passVisible,
+                  controller: inpPassController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 0),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: pageHeight * 0.064 * 0.265,
+                      horizontal: pageWidth * 0.0389,
+                    ),
+                    hintText: 'Password',
+                    hintStyle: Theme.of(context).textTheme.labelSmall,
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _passVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Theme.of(context).primaryColorDark,
                       ),
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: pageHeight * 0.064 * 0.265,
-                        horizontal: pageWidth * 0.0389,
-                      ),
-                      hintText: 'Your Name',
-                      hintStyle: Theme.of(context).textTheme.labelSmall,
+                      onPressed: () {
+                        setState(() {
+                          _passVisible = !_passVisible;
+                        });
+                      },
                     ),
                   ),
                 ),
               ),
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(
-                  top: pageHeight * 0.024,
-                  bottom: pageHeight * 0.01,
-                  left: pageWidth * 0.085,
-                ),
-                child: Text(
-                  'Email address',
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                    pageWidth * 0.085, 0, pageWidth * 0.085, 0),
-                child: SizedBox(
-                  child: TextFormField(
-                    textInputAction: TextInputAction.next,
-                    autovalidateMode: AutovalidateMode.always,
-                    validator: validateEmail,
-                    controller: inpEmailController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 0),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: pageHeight * 0.064 * 0.265,
-                        horizontal: pageWidth * 0.0389,
-                      ),
-                      hintText: 'name@example.com',
-                      hintStyle: Theme.of(context).textTheme.labelSmall,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(
-                  top: pageHeight * 0.024,
-                  bottom: pageHeight * 0.01,
-                  left: pageWidth * 0.085,
-                ),
-                child: Text(
-                  'Password',
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                    pageWidth * 0.085, 0, pageWidth * 0.085, 0),
-                child: SizedBox(
-                  child: TextFormField(
-                    textInputAction: TextInputAction.done,
-                    obscureText: !_passVisible,
-                    controller: inpPassController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 0),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: pageHeight * 0.064 * 0.265,
-                        horizontal: pageWidth * 0.0389,
-                      ),
-                      hintText: 'Password',
-                      hintStyle: Theme.of(context).textTheme.labelSmall,
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _passVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: Theme.of(context).primaryColorDark,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _passVisible = !_passVisible;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(pageWidth * 0.172,
-                    pageHeight * 0.0607, pageWidth * 0.172, pageHeight * 0.03),
-                child: SizedBox(
-                  height: pageHeight * 0.074,
-                  width: pageWidth * 0.6472,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigator.of(context)
-                      //     .pushReplacementNamed(SignUp.routeName);
-                      newUserCreate(
-                        inpEmailController.text,
-                        inpNameController.text,
-                        inpPassController.text,
-                      );
-                      if (info != "") {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: const Text(
-                              "Login Notice!",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 230, 20, 72),
-                                // color: Colors.red,
-                              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(pageWidth * 0.172,
+                  pageHeight * 0.0607, pageWidth * 0.172, pageHeight * 0.03),
+              child: SizedBox(
+                height: pageHeight * 0.074,
+                width: pageWidth * 0.6472,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigator.of(context)
+                    //     .pushReplacementNamed(SignUp.routeName);
+                    newUserCreate(
+                      inpEmailController.text,
+                      inpNameController.text,
+                      inpPassController.text,
+                    );
+                    if (info != "") {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text(
+                            "Login Notice!",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 230, 20, 72),
+                              // color: Colors.red,
                             ),
-                            content: Text(
-                              info.toString(),
-                              style: const TextStyle(
-                                fontFamily: 'Poppins',
-                                color: Color(0xff364356),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                              ),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(9),
-                            ),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  if (info ==
-                                      "User he gadhe! Jake Login kar!") {
-                                    Navigator.pushReplacementNamed(
-                                      context,
-                                      SignIn.routeName,
-                                    );
-                                  } else {
-                                    Navigator.of(context).pop();
-                                  }
-                                },
-                                child: const Text("Continue"),
-                              )
-                            ],
                           ),
-                        );
-                      } else {
-                        Navigator.of(context).pushReplacementNamed(
-                          GradeSelection.routeName,
-                          arguments: indexUser,
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: const Text(
-                      'Sign up',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
+                          content: Text(
+                            info.toString(),
+                            style: const TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Color(0xff364356),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(9),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                if (info ==
+                                    "User he gadhe! Jake Login kar!") {
+                                  Navigator.pushReplacementNamed(
+                                    context,
+                                    SignIn.routeName,
+                                  );
+                                } else {
+                                  Navigator.of(context).pop();
+                                }
+                              },
+                              child: const Text("Continue"),
+                            )
+                          ],
+                        ),
+                      );
+                    } else {
+                      Navigator.of(context).pushReplacementNamed(
+                        GradeSelection.routeName,
+                        arguments: indexUser,
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'You have account?',
+                  child: const Text(
+                    'Sign up',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
-                  TextButton(
-                    child: const Text(
-                      'Sign in',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18,
-                      ),
-                    ),
-                    onPressed: () {
-                      //signup screen
-                      Navigator.pushReplacementNamed(
-                        context,
-                        SignIn.routeName,
-                      );
-                    },
-                  )
-                ],
+                ),
               ),
-            ],
-          )),
-        ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text(
+                  'You have account?',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+                TextButton(
+                  child: const Text(
+                    'Sign in',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {
+                    //signup screen
+                    Navigator.pushReplacementNamed(
+                      context,
+                      SignIn.routeName,
+                    );
+                  },
+                )
+              ],
+            ),
+          ],
+        )),
       ),
     );
   }

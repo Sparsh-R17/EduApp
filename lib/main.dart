@@ -8,6 +8,7 @@ import '/screens/signin.dart';
 import '/screens/signup.dart';
 import '/screens/intro.dart';
 
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
@@ -100,7 +101,7 @@ class MyApp extends StatelessWidget {
         SignUp.routeName: (context) => const SignUp(),
         GradeSelection.routeName: (context) => const GradeSelection(),
         StateSelection.routeName: (context) => const StateSelection(),
-        ExploreScreen.routeName: (context) => const ExploreScreen(),
+        ExploreScreen.routeName: (context) => ExploreScreen(),
       },
       // home: const Intro(),
     );
