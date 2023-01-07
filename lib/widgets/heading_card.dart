@@ -123,7 +123,6 @@ class HeadingCard extends StatelessWidget {
                           )),
                         ),
                         onPressed: () {
-                          print("Search pressed");
                         },
                         child: const Icon(
                           Icons.search,
@@ -139,7 +138,6 @@ class HeadingCard extends StatelessWidget {
                     right: pageWidth * 0.06, top: pageHeight * 0.02),
                 child: IconButton(
                   onPressed: () {
-                    print("Pressed");
                   },
                   icon: Image.asset('assets/Images/Filter_icon.png'),
                 ),

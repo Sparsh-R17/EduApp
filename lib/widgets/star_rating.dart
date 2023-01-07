@@ -3,19 +3,21 @@ import 'package:flutter/material.dart';
 class StarRating extends StatelessWidget {
   final double rating;
 
-  StarRating({super.key, required this.rating});
+  const StarRating({super.key, required this.rating});
 
-  bool halfStar = false;
-  void halfRating(rating) {
+  final bool halfStar = false;
+  bool halfRating(rating) {
+    bool tempStar = halfStar;
     if (rating % 1 == 0.5) {
-      halfStar = true;
+      tempStar = true;
     }
+    return tempStar;
   }
 
   IconData returnIcon(index, rating) {
-    halfRating(rating);
+    bool finalStar = halfRating(rating);
     rating = rating.floor();
-    if (halfStar) {
+    if (finalStar) {
       if (index < rating) {
         return Icons.star;
       } else if (index == rating) {

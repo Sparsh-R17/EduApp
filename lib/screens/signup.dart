@@ -46,7 +46,7 @@ class _SignUpState extends State<SignUp> {
     bool exist = false;
 
     if (newEmail.isEmpty || newName.isEmpty || newPass.isEmpty) {
-      info = "Fill all the details, Idiot!";
+      info = "Fill all the details!";
     } else {
       for (var i = 0; i < userData.length; i++) {
         if (userData[i].email == newEmail) {
@@ -57,7 +57,7 @@ class _SignUpState extends State<SignUp> {
         }
       }
       if (exist) {
-        info = "User he gadhe! Jake Login kar!";
+        info = "User already exists! ";
       } else {
         final newUser = User(
           email: newEmail,

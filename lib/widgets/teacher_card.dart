@@ -1,3 +1,4 @@
+import 'package:eduapp/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class TeacherCard extends StatelessWidget {
@@ -5,12 +6,15 @@ class TeacherCard extends StatelessWidget {
   final String subject;
   final Color color;
   final String pic;
+  final int index;
+
   const TeacherCard({
     super.key,
     required this.name,
     required this.subject,
     required this.color,
     required this.pic,
+    required this.index,
   });
 
   @override
@@ -21,7 +25,13 @@ class TeacherCard extends StatelessWidget {
       height: pageHeight * 0.21,
       width: pageWidth * 0.35,
       padding: const EdgeInsets.all(8),
-      margin: EdgeInsets.only(right: pageWidth * 0.05),
+      margin: index == (teacherData.length - 1)
+          ? EdgeInsets.symmetric(
+              horizontal: pageWidth * 0.05,
+            )
+          : EdgeInsets.only(
+              left: pageWidth * 0.05,
+            ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -45,7 +55,8 @@ class TeacherCard extends StatelessWidget {
             child: Image.asset(pic),
           ),
           Padding(
-            padding: EdgeInsets.only(left: pageWidth * 0.015,top: pageHeight * 0.005),
+            padding: EdgeInsets.only(
+                left: pageWidth * 0.015, top: pageHeight * 0.005),
             child: FittedBox(
               fit: BoxFit.contain,
               child: Text(

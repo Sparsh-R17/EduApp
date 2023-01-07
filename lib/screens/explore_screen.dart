@@ -9,14 +9,15 @@ import '../widgets/institute_filter.dart';
 import '../widgets/institute_card.dart';
 import '../widgets/bottom_nav.dart';
 
+
+// ignore: must_be_immutable
 class ExploreScreen extends StatelessWidget {
   ExploreScreen({super.key});
   static const routeName = '/explore-screen';
-  var curTime;
+  dynamic curTime;
   @override
   Widget build(BuildContext context) {
     final pageHeight = MediaQuery.of(context).size.height;
-    final pageWidth = MediaQuery.of(context).size.width;
     final routeArgs = ModalRoute.of(context)?.settings.arguments as int?;
     final indexUser = routeArgs;
     return Scaffold(
@@ -24,11 +25,11 @@ class ExploreScreen extends StatelessWidget {
         onWillPop: () {
           DateTime now = DateTime.now();
           if (curTime == null ||
-              now.difference(curTime) > Duration(seconds: 2)) {
+              now.difference(curTime) > const Duration(seconds: 2)) {
             curTime = now;
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: const Text("Press back again to exit!"),
+              const SnackBar(
+                content: Text("Press back again to exit!"),
               )
             );
             return Future.value(false);
@@ -50,10 +51,9 @@ class ExploreScreen extends StatelessWidget {
                   SizedBox(
                     height: pageHeight * 0.035,
                   ),
-                  Container(
+                  SizedBox(
                     height: pageHeight * 0.25,
                     width: double.infinity,
-                    margin: EdgeInsets.only(left: pageWidth * 0.06),
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemBuilder: ((context, index) {
@@ -62,6 +62,7 @@ class ExploreScreen extends StatelessWidget {
                           subject: teacherData[index].subject,
                           color: teacherData[index].color,
                           pic: teacherData[index].pic,
+                          index: index,
                         );
                       }),
                       itemCount: teacherData.length,
